@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="content">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+
+        </ul>
+    </div>
+    <script src="./bscroll.js"></script>
+    <script>
+        // 默认情况下BScroll是不可以实时监听滚动位置
+        // probe侦测
+        // 0，1都是不侦测实时的位置
+        // 2，在手指滚动的过程中侦测，离开后惯性滚动过程中不侦测
+        // 3只有滚动，都侦测
+        const bscroll = new BScroll(document.querySelector('.content'), {
+            probeType: 3,
+            click: true,
+            pullUpLoad: true
+
+        })
+        // bscroll.on('scroll', (position) => {
+        //     console.log(position)
+        // })
+        bscroll.on('pullingUp', () => {
+            console.log('弟弟');
+            // 发送网络请求，更多也数据
+            // 等待完成将新数据显示出来后
+            setTimeout(() => {
+                bscroll.finishPullUp()
+            }, 2000)
+        })
+        // document.querySelector('.btn').addEventListener('click', function () {
+        //     console.log('......')
+        // })
+    </script>
+</body>
+
+</html>
